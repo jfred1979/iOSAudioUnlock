@@ -1,6 +1,6 @@
 {
   "name": "ios-audio-unlock",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Unlock audio on iOS after user touches screen; experimental option to allow Web Audio to be played even when mute switch is on.",
   "main": "AudioUnlock.js",
   "scripts": {
