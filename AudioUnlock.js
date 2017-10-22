@@ -28,7 +28,7 @@ module.exports = function unlockAudio(context, completeCallback, unlockHTMLAudio
         document.body.insertBefore(overlayContainer, document.body.childNodes[0]);
     }
 
-    var complete = () => {
+    var complete = function() {
         document.body.removeEventListener('click', unlock, false);
         document.body.removeEventListener('touchstart', unlock, false);
         if(overlayContainer !== undefined) {
@@ -39,12 +39,12 @@ module.exports = function unlockAudio(context, completeCallback, unlockHTMLAudio
         if(completeCallback !== undefined && completeCallback !== null) {
             completeCallback();
         }
-    }
+    }.bind(this)
 
     var isWebAudioUnlocked = false;
     var isHTMLAudioUnlocked = unlockHTMLAudio ? false : true;
 
-    var unlock = () => {
+    var unlock = function() {
         if(overlayTextNode !== undefined) {
             overlayTextNode.style.transition = 'all .25s ease-in-out';
             overlayTextNode.style.opacity = '0.25';
@@ -93,8 +93,7 @@ module.exports = function unlockAudio(context, completeCallback, unlockHTMLAudio
             };
             tag.play();
         }
-
-    }
+    }.bind(this)
     document.body.addEventListener('click', unlock, false);
     document.body.addEventListener('touchstart', unlock, false);
 }
