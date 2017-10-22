@@ -2,9 +2,10 @@ module.exports = function unlockAudio(context, completeCallback, unlockHTMLAudio
     var overlayContainer;
     var overlayTextNode;
     if(addOverlay) {
+        var overlayMessage = 'tap/click to begin<br />be sure your mute switch is off if on iPhone'
         overlayContainer = document.createElement('div');
         overlayTextNode = document.createElement('p');
-        overlayTextNode.innerHTML = (params !== undefined && params.overlayText !== undefined) ? params.overlayText : 'tap/click to begin<br />be sure your mute switch is off if you are on and iPhone';
+        overlayTextNode.innerHTML = (params !== undefined && params.overlayText !== undefined) ? params.overlayText : overlayMessage;
         overlayTextNode.className = 'overlayTextNode';
         overlayContainer.appendChild(overlayTextNode);
         if(params !== undefined && params.overlayClassName !== undefined) {
@@ -21,6 +22,7 @@ module.exports = function unlockAudio(context, completeCallback, unlockHTMLAudio
             overlayContainer.style.color = '#ffffff';
             overlayContainer.style.fontFamily = 'Arial';
             overlayContainer.style.fontSize = '1.5em';
+            overlayContainer.style.textAlign = 'center';
             overlayContainer.style.backgroundColor = 'rgba(0,0,0,0.5)';
         }
         document.body.insertBefore(overlayContainer, document.body.childNodes[0]);
