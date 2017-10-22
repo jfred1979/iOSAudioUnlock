@@ -1,4 +1,4 @@
-export default function unlockAudio(context, completeCallback, addOverlay, params) {
+module.exports = function unlockAudio(context, completeCallback, addOverlay, params) {
     var overlayContainer;
     var overlayTextNode;
     if(addOverlay) {
