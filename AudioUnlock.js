@@ -2,7 +2,7 @@ module.exports = function unlockAudio(context, completeCallback, unlockHTMLAudio
     var overlayContainer;
     var overlayTextNode;
     if(addOverlay) {
-        var overlayMessage = 'tap/click to begin<br />be sure your mute switch is off if on iPhone'
+        var overlayMessage = 'tap/click to begin<br /><br />be sure your mute switch<br />is off if on iPhone'
         overlayContainer = document.createElement('div');
         overlayTextNode = document.createElement('p');
         overlayTextNode.innerHTML = (params !== undefined && params.overlayText !== undefined) ? params.overlayText : overlayMessage;
