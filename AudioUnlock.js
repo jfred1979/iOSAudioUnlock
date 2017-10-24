@@ -1,10 +1,11 @@
 module.exports = function unlockAudio(context, completeCallback, unlockHTMLAudio, addOverlay, params) {
+    var supportsWebAudio = (window.AudioContext||window.webkitAudioContext);
     var overlayContainer;
     var overlayTextNode;
     var isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
     if(addOverlay) {
-        var overlayMessage = 'tap/click to begin';
-        if(isIOS) {
+        var overlayMessage = supportsWebAudio ? 'tap/click to begin' : 'your browser does not support web audio<br /><br />which is required for this experience';
+        if(isIOS && supportsWebAudio) {
             overlayMessage += '<br /><br />be sure your mute switch<br />is off if on iPhone';
         }
         overlayContainer = document.createElement('div');
